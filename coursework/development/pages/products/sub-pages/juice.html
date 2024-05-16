@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <link rel="stylesheet" href="counter.css">
+        <style>
+          *{
+            padding: 0;
+            margin: 0;
+          }
+            body{
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            p{
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .img-list1 img{
+                display: flex;
+                flex-direction: column;
+                column-gap: 10px;
+                width: 80px;   
+                height: 80px;
+                margin-bottom: 15px;
+                background-color: rgb(236, 236, 236);
+            }
+            .img_list{
+              padding: 5px;
+            }
+            .prt_img1{
+                width: 500px;
+                height: 500px;
+                background-color: rgb(236, 236, 236);
+                padding: 10px;
+            }
+
+            .prt_price1{
+                color:rgb(101, 183, 65);
+                text-decoration:underline;
+            }
+            .prt-info-container1{
+                
+            }
+            .additional-info-container1{
+                display:flex;
+                flex-direction: column;
+                gap: 25px;
+            }
+            .additional-info1{
+                border: 1px solid rgba(255, 181, 52, 0.341);
+                padding: 15px 25px;
+                transition: all 0.25s;
+                /*color: rgb(255, 181, 52);*/
+            }
+            .additional-info1:hover{
+                border-color: rgb(255, 181, 52);
+            }
+            .info_title1{
+                font-weight: bold;
+            }
+            .info_answer1{
+              color:rgb(124, 124, 124);
+              font-weight: lighter;
+            }
+            .info_title1, .info_answer1{
+                margin-bottom: 15px;
+            }
+
+            /*you may also like css*/
+            /*css of 
+      product
+       section*/
+      .container-grid{
+      
+    }
+    .container{
+      background-color: white;
+      border-bottom-right-radius: 10px; 
+      border-bottom-left-radius: 10px;
+      display:grid;
+      place-items:center;
+      margin-top: 30px;
+      padding: 10px 0px;
+      cursor:pointer;
+      position:relative;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.121);
+      transition: 0.5s ease-in-out; 
+      overflow: hidden;
+    }
+    .container, .prt_price{
+      transition: 0.5s; 
+    }
+    .container::before{
+      content: '';
+      background-color: rgb(101, 183, 65);
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      position:absolute;
+      z-index: -1;
+      transform:
+       scaleY(0);
+      transform-origin:bottom;
+      transition: transform 0.5s ease-in-out;
+      border-bottom-right-radius: 10px; 
+      border-bottom-left-radius: 10px;
+    }
+    .container{
+      z-index: 1;
+    }
+    .container:hover::before{
+      transform:scaleY(1);
+    }
+
+    .prt_img{
+    width: 300px;
+    height: 350px;
+    object-fit:cover; 
+    }
+    .prt-details{
+      text-align:center;
+    }
+    .prt_name, .prt_price{
+      margin:0;
+    }
+    .prt_name{
+      font-size: 25px;
+      font-weight:bold;
+      margin: 10px;
+    }
+    
+    .prt_price{
+      display:inline-block;
+      font-size: 20px;
+      padding: 12px 50px ;
+      color:white;
+      font-weight: bolder;
+      background-color:rgb(101, 183, 65);
+      border-radius: 8px;
+    }
+    .container:hover .prt_name{
+      color: white;
+    }
+    .container:hover .prt_price{
+      padding: 12px 80px;
+    }
+    .container:hover .prt_price{
+      background-color:white;
+      color: green;
+    }
+    .prt_price:active{
+      background-color:black;
+      color: green;
+    }  
+  
+    .container .prt_img{
+      transition: all 0.5s;
+    }
+    .container:hover .prt_img{
+      transform: scale(1.1);
+    }
+    /*adding icons*/
+    .prt_img{
+      position: relative;
+    }
+    .icon-div{
+      position: absolute; 
+      width:26px;
+      height: 26px;
+      border-radius: 50%;
+      padding: 5px;
+      object-fit:cover;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.701);
+      opacity: 0%;   
+    }
+    .icon{
+      width: 26px;
+      height: 26px;
+    }
+    .bag-div{
+      left: 60%;
+      top: 6%;
+    }
+    .wishlist-div{
+      left: 75%;
+      top: 6%;
+    }   
+    .container:hover .icon-div{
+      transition:ease-in-out 0.25s;
+      opacity: 100%;
+    }
+    .icon-div:hover{
+      background-color:rgb(255, 181, 52);
+    }
+    .icon-div:hover .icon{
+      filter:invert();
+    }
+    .guide{
+      text-align:center;
+      position:absolute;
+      background-color: rgb(255, 181, 52);
+      color:white;
+      font-size: 14px;
+      border-radius: 12px;
+      width: 90px;
+      opacity: 0;
+      bottom: 30px;
+      left: -70%;
+      margin-bottom: 10px;
+    }
+    .wishlist_guide{
+      padding: 0 5px ;
+    }
+    .icon-div:hover .guide{
+      transition: 0 3s;
+      opacity: 1;
+    }
+    /*counter css*/
+
+  
+            /*you may also like css*/
+        </style>
+    </head>
+
+    <body>
+<!--quicknav-->
+        <div style="
+            display:flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            ">
+            <p>Home</p> 
+            <p>> Coca-Cola</p>
+        </div>
+<!--quicknav-->
+
+        <div class="prt-container" style="
+        display: flex;
+        gap: 50px;  
+        ">
+    <!--images of the products on the left-->
+            <div class="img-list1">
+                <img src="../../../resources/product/photos/drinks/coca-cola.png" alt="img" class="img_list">
+                <img src="" alt="img" class="img_list">
+                <img src="" alt="img" class="img_list">
+            </div>
+    <!--images of the products on the left-->
+            
+    <!--product image 1-->
+            <div>
+                <img src="../resources/photos/chips/coca-cola.png" alt="prt_img" class="prt_img1">
+            </div>
+    <!--product image 1-->
+
+    <!--Product info 2-->
+            <div class="prt-info-container1">
+                <p class="prt_name1">Coca-Cola</p>
+                <p class="prt_price1">Rs 100.00</p>
+                <p class="prt_discription1">
+                    Coca-Cola is a refreshing, bubbly beverage that has been enjoyed by people around the world for over 130 years.
+                     It's made with a unique blend of natural flavors, including caramel and vanilla, and contains caffeine for a little pick-me-up.
+                     Coca-Cola is perfect for any occasion, whether you're relaxing at home, enjoying a meal out, or on the go.
+                </p>
+                <!--
+ <div class="add-to-cart-container">
+                  <p class="number">1</p>
+                  <div class="counter-container">
+                    <div class="icon-counter-container">
+                      <img src="../resources/icons/addition.png" class="counter_icon">
+                    </div>
+                    <div class="icon-counter-container">
+                      <img src="../resources/icons/minus.png" class="counter_icon">
+                    </div>
+                  </div>
+                  <div class="add-to-cart-buttons">
+                    <button class="cart_button">ADD TO CART</button> <br>
+                    <button class="buy_button">BUY IT NOW</button>
+                  </div>
+                </div>
+                -->
+               
+                
+            </div>
+    <!--Product info 2-->
+
+    <!--additional info 3-->
+            <div class="additional-info-container1">
+                <div class="additional-info1">
+                    <p class="info_title1">Why choose us ?</p>
+                    <p class="info_answer1">Official Herschel stockist Australian warranty assistance 
+                        & support Australian shipping & returns.Customer first experience environmentally focused</p>
+                </div>
+                <div class="additional-info1">
+                    <p class="info_title1">Why choose us ?</p>
+                    <p class="info_answer1">Official Herschel stockist Australian warranty assistance 
+                        & support Australian shipping & returns.Customer first experience environmentally focused</p>
+                </div>
+                <div class="additional-info1">
+                    <p class="info_title1">Why choose us ?</p>
+                    <p class="info_answer1">Official Herschel stockist Australian warranty assistance 
+                        & support Australian shipping & returns.Customer first experience environmentally focused</p>
+                </div>
+            </div>
+            
+            
+    <!--additional info 3-->
+        </div>
+
+    <!--related products-->
+        <div class="related-products-container1">
+            <p class="related_prt_title1" style="
+                text-align:center;
+                font-size: 25px;
+                ">Related Products</p>
+        </div>
+      <div class="container-grid" style="
+        background-color: #f9f6f1;
+        display:flex;
+        place-items:center;
+        padding-bottom: 1500px;
+        ">
+      <div class="container">
+        <img class="prt_img" src="../resources/photos/chips/oreo.png"> 
+        <div class="prt-details">
+          <p class="prt_name">2pm STIX</p>
+          <p class="prt_price">Rs. 50</p>
+        </div>
+        <!--action option such as add to cart, wihlist-->
+        <div class="icon-container" style="
+
+        ">
+          <div class="icon-div bag-div">
+            <img src="../../../resources/product/icons/bag-add.png" class="icon bag_add">
+            <p class="guide bag_guide">Add to Cart</p>  
+          </div>
+          <div class="icon-div wishlist-div">
+            <img src="../resources/photos/wishlist.png" class="icon wishlist">
+            <p class="guide wishlist_guide">Add to Wishlist</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--related products-->
+    </body>
+</html>
